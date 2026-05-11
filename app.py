@@ -4,11 +4,7 @@ import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 from PIL import Image
 import sys, os
-
-try:
-    from ultralytics import YOLO
-except ImportError:
-    st.error("Please install the ultralytics package to use the vision model: pip install ultralytics")
+from ultralytics import YOLO
 
 fish_db = {
     "Tilapia (Nile & Red)": {
