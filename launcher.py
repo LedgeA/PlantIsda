@@ -28,8 +28,6 @@ def main():
     ]
     
     sys.exit(stcli.main())
-    
-    sys.exit(stcli.main())
 
 if __name__ == "__main__":
     if sys.platform.startswith('win'):
