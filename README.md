@@ -4,9 +4,9 @@ A Streamlit application for exploring fish and plant pairings in aquaponics. Pla
 
 ## Screenshot
 
-![PlantIsda ranking plants for tilapia, showing species profiles, compatibility scores, and a recommendation](docs/screenshots/fish-compatibility.png)
+![PlantIsda in dark mode ranking plants for tilapia, showing species profiles, compatibility scores, and a recommendation](docs/screenshots/fish-compatibility.png)
 
-This screenshot shows manual selection with the application's built-in species data. Optional camera capture is omitted from the screenshots.
+This screenshot shows manual selection in dark mode with the application's built-in species data. Optional camera capture is omitted from the screenshots.
 
 ## Features
 
@@ -70,17 +70,3 @@ Open `http://localhost:8501`. To use the launcher after activating the environme
 2. Choose **Upload File** and select a PNG/JPEG, or choose **Take Picture** and grant camera permission.
 3. The app runs the bundled YOLO model and uses the first detection to look up a plant profile.
 4. When a label matches the database, the app shows compatible fish. Otherwise, it reports an unmatched label or no detection.
-
-## Configuration
-
-| Location | What to change |
-| --- | --- |
-| `fish_db` and `plant_db` in [app.py](app.py) | Species names, temperature and pH ranges, and nutrient rates |
-| `build_fuzzy()` in [app.py](app.py) | Membership functions and the compatibility rule table |
-| `yolo_to_db_mapping` in [app.py](app.py) | Detection labels that map to plant profiles |
-| `yolo26n.pt` | The model used by the image workflow |
-| [.streamlit/config.toml](.streamlit/config.toml) | Streamlit interface settings |
-
-Use `python -m streamlit run app.py --server.port 8502` to select a different port. The launcher has its own fixed port setting in `launcher.py`.
-
-The compatibility percentages are outputs of the bundled rules and species data, rather than measurements from an aquaponics system. Review those data before relying on a pairing; the current common-carp entry, for example, contains a pH range of `(150, 250)` that needs correction for meaningful results.
